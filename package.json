@@ -77,10 +77,12 @@
 		"commands": [
 			{
 				"command": "restruct.createComponent",
+				"category": "Restruct",
 				"title": "New Component"
 			},
 			{
 				"command": "restruct.createState",
+				"category": "Restruct",
 				"title": "New State"
 			}
 		],
