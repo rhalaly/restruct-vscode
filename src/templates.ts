@@ -30,37 +30,49 @@ export async function template(
     if (!fs.existsSync(destinationPath)) { return; }
 
     const template =
-        ((await import(`./templates/${templateName}`)).default as Template).bind(variables);
+        ((await import(`./templates/${templateName}`)).default as Template)
+            .bind(variables);
 
-    copyTemplateDir(
+    await copyTemplateDir(
         template(templateConfig),
         destinationPath);
 }
 
-function copyTemplateDir(
+async function copyTemplateDir(
     template: TemplateStruct,
     destinationPath: string) {
 
-    Object.keys(template).forEach(file => {
+    const promises = Object.keys(template).map(file => {
         if (typeof template[file] === 'string') {
-            handleFile(template[file] as string, path.join(destinationPath, file));
+            return handleFile(template[file] as string, path.join(destinationPath, file));
         } else if (typeof template[file] === 'object') {
-            handleDirectory(template[file] as TemplateStruct, path.join(destinationPath, file));
+            return handleDirectory(template[file] as TemplateStruct, path.join(destinationPath, file));
         }
+        return undefined; // never
     });
+
+    await Promise.all(promises);
 }
 
-function handleFile(
+async function handleFile(
     content: string,
     destinationPath: string) {
 
-    fs.writeFile(destinationPath, content, () => { });
+    return new Promise((resolve, reject) => {
+        fs.writeFile(destinationPath, content, (err) => {
+            if (err) {
+                reject();
+            } else {
+                resolve();
+            }
+        });
+    });
 }
 
-function handleDirectory(
+async function handleDirectory(
     template: TemplateStruct,
     destinationPath: string) {
 
     fs.mkdirSync(destinationPath);
-    copyTemplateDir(template, destinationPath);
+    await copyTemplateDir(template, destinationPath);
 }

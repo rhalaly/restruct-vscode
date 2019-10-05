@@ -21,7 +21,7 @@
 		"javascript",
 		"typescript"
 	],
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.38.0"
@@ -110,11 +110,13 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
+		"@types/fs-extra": "^8.0.0",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^5.2.6",
 		"@types/node": "^10.12.21",
 		"@types/vscode": "^1.38.0",
 		"change-case": "^3.1.0",
+		"fs-extra": "^8.1.0",
 		"glob": "^7.1.4",
 		"mocha": "^6.1.4",
 		"tslint": "^5.12.1",
