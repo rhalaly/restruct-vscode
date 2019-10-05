@@ -2,7 +2,8 @@ import { fileExtention, getCaseFormatter } from '../utils';
 import { TemplateConfig } from '../templates';
 import { pascalCase, paramCase } from 'change-case';
 
-export const CONFIG_USE_REDUX = "USE_REDUX";
+export const EXTRA_USE_REDUX = "useRedux";
+export const EXTRA_COMBINE_REDUX = "reduxInContainer";
 
 export default function (this: any, config: TemplateConfig) {
 
@@ -72,6 +73,36 @@ export default connect(
 
 }`;
 
+    const containerReduxFileContent =
+        `import React, { Component } from 'react';
+import { connect${config.isTypescript ? ', Dispatch' : ''} } from 'react-redux';
+import ${cmpName}View from './${viewFileName}';
+
+class ${cmpName}Container extends Component {
+    render() {
+        return (
+            <${cmpName}View />
+        );
+    }
+}
+
+function mapStateToProps(state${config.isTypescript ? ': any' : ''}) {
+    return {
+
+    };
+}
+
+function mapDispatchToProps(dispatch${config.isTypescript ? ': Dispatch' : ''}) {
+    return {
+
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(${cmpName}Container);`;
+
     const indexContent = (entry: string) =>
         `export { default } from './${entry}';`;
 
@@ -86,14 +117,17 @@ export default connect(
         [`index.${ext}`]: indexContent(containerFileName),
     };
 
-    if (config && config.extras[CONFIG_USE_REDUX]) {
-        files[`${reduxFileName}.${ext}`] = reduxFileContent;
-        files[`${reduxTestFileName}.${ext}`] = '';
-        files[`index.${ext}`] = indexContent(reduxFileName);
+    if (config && config.extras[EXTRA_USE_REDUX]) {
+        if (config.extras[EXTRA_COMBINE_REDUX]) {
+            files[`${containerFileName}.${ext}x`] = containerReduxFileContent;
+        } else {
+            files[`${reduxFileName}.${ext}`] = reduxFileContent;
+            files[`${reduxTestFileName}.${ext}`] = '';
+            files[`index.${ext}`] = indexContent(reduxFileName);
+        }
     }
 
     return {
         [`${formatter(this.name)}`]: files
     };
-
 }

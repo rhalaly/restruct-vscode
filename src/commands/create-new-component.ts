@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { template } from '../templates';
 import { hasDependency, getCaseFormatter } from '../utils';
-import { CONFIG_USE_REDUX } from '../templates/new-component';
+import { EXTRA_USE_REDUX } from '../templates/new-component';
 
 function isTypescriptProject(projPath: string) {
     if (fs.existsSync(path.join(projPath, 'tsconfig.json'))) {
@@ -72,7 +72,8 @@ export async function createNewComponentCommmand(fileUri: vscode.Uri) {
         isTypescript: isTypescriptProject(rootDir),
         filesFormatter: formatter,
         extras: {
-            [`${CONFIG_USE_REDUX}`]: isUsingRedux(rootDir),
+            [EXTRA_USE_REDUX]: isUsingRedux(rootDir),
+            ...vscode.workspace.getConfiguration('restruct.newComponent'),
         }
     };
 

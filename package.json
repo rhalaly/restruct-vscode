@@ -21,7 +21,7 @@
 		"javascript",
 		"typescript"
 	],
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
@@ -60,6 +60,11 @@
 					"default": "src/components",
 					"format": "uri",
 					"markdownDescription": "The default components directory, for example `src/components`. Leave empty for auto detection"
+				},
+				"restruct.newComponent.reduxInContainer": {
+					"type": "boolean",
+					"default": false,
+					"markdownDescription": "Use Redux `connect` inside the Container (Only affects when Redux is installed)"
 				}
 			}
 		},

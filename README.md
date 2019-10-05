@@ -17,3 +17,4 @@ This extension contributes the following settings:
 
 * `restruct.filesNamingFormat`: The default files naming format (Camel, Pascal, Snake, Dash)
 * `restruct.defaultComponentsDirectory`: The default components directory
+* `restruct.newComponent.reduxInContainer`: Use Redux `connect` inside the Container (Only affects when Redux is installed)
