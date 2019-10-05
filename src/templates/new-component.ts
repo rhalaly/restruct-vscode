@@ -13,11 +13,8 @@ export default function (this: any, config: TemplateConfig) {
 
     const cssFileName = formatter(this.name);
     const viewFileName = formatter(`${this.name}.view`);
-    const viewTestFileName = formatter(`${this.name}.view.test`);
     const containerFileName = formatter(`${this.name}.container`);
-    const containerTestFileName = formatter(`${this.name}.container.test`);
     const reduxFileName = formatter(`${this.name}.redux`);
-    const reduxTestFileName = formatter(`${this.name}.redux.test`);
 
     const viewFileContent =
         `import React from 'react';
@@ -110,9 +107,9 @@ export default connect(
 
     let files = {
         [`${viewFileName}.${ext}x`]: viewFileContent,
-        [`${viewTestFileName}.${ext}x`]: '',
+        [`${viewFileName}.test.${ext}x`]: '',
         [`${containerFileName}.${ext}x`]: containerFileContent,
-        [`${containerTestFileName}.${ext}x`]: '',
+        [`${containerFileName}.test.${ext}x`]: '',
         [`${cssFileName}.css`]: cssContent,
         [`index.${ext}`]: indexContent(containerFileName),
     };
@@ -122,7 +119,7 @@ export default connect(
             files[`${containerFileName}.${ext}x`] = containerReduxFileContent;
         } else {
             files[`${reduxFileName}.${ext}`] = reduxFileContent;
-            files[`${reduxTestFileName}.${ext}`] = '';
+            files[`${reduxFileName}.test.${ext}`] = '';
             files[`index.${ext}`] = indexContent(reduxFileName);
         }
     }
