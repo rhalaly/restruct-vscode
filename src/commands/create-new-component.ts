@@ -23,6 +23,11 @@ function componentsDirLocation(rootDir: string, defaultPath: string) {
         path.join(rootDir, 'app', 'view'),
         path.join(rootDir, 'app', 'views', 'components'),
         path.join(rootDir, 'app', 'views'),
+        path.join(rootDir, 'ClientApp', 'components'),
+        path.join(rootDir, 'ClientApp', 'view', 'components'),
+        path.join(rootDir, 'ClientApp', 'view'),
+        path.join(rootDir, 'ClientApp', 'views', 'components'),
+        path.join(rootDir, 'ClientApp', 'views'),
     ].filter(path => fs.existsSync(path));
 
     if (defaultPath) {

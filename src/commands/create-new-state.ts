@@ -13,6 +13,8 @@ function componentsDirLocation(rootDir: string, defaultPath: string) {
     }
     const paths = [
         path.join(rootDir, 'src', 'state'),
+        path.join(rootDir, 'app', 'state'),
+        path.join(rootDir, 'ClientApp', 'state'),
     ].filter(path => fs.existsSync(path));
 
     if (defaultPath) {
