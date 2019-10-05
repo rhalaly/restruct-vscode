@@ -3,7 +3,7 @@
 [![VS Code Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/rhalaly.restruct-vscode)](https://marketplace.visualstudio.com/items?itemName=rhalaly.restruct-vscode)
 [![Version](https://img.shields.io/visual-studio-marketplace/v/rhalaly.restruct-vscode)](https://github.com/rhalaly/restruct-vscode)
 
-The Restruct Visual Studio Code extenstion will make you React project well structured with common React templates. It contains templates for best React structure partices.  
+Restruct contains common templates for React's best practices.  
 It supports Javascript, Typescript and Redux and change the template based on your project.
 
 ## Features

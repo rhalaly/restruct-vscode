@@ -8,7 +8,7 @@
 	},
 	"homepage": "https://github.com/rhalaly/restruct-vscode/blob/master/README.md",
 	"bugs": "https://github.com/rhalaly/restruct-vscode/issues",
-	"description": "The Restruct Visual Studio Code extenstion will make you React project well structured with common React templates. It contains templates for best React structure partices.",
+	"description": "Restruct contains common templates for React's best practices.",
 	"icon": "images/icon.png",
 	"galleryBanner": {
 		"color": "#222222",
@@ -21,7 +21,8 @@
 		"javascript",
 		"typescript"
 	],
-	"version": "0.3.0",
+	"version": "0.3.1",
+	"license": "MIT",
 	"engines": {
 		"vscode": "^1.38.0"
 	},
