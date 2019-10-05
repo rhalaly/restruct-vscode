@@ -1,0 +1,101 @@
+{
+	"name": "restruct-vscode",
+	"displayName": "Restruct - React structure templates",
+	"publisher": "rhalaly",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rhalaly/restruct-vscode"
+	},
+	"homepage": "https://github.com/rhalaly/restruct-vscode/blob/master/README.md",
+	"bugs": "https://github.com/rhalaly/restruct-vscode/issues",
+	"description": "The Restruct Visual Studio Code extenstion will make you React project well structured with common React templates. It contains templates for best React structure partices.",
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#222222",
+		"theme": "dark"
+	},
+	"keywords": [
+		"react",
+		"reactjs",
+		"redux",
+		"javascript",
+		"typescript"
+	],
+	"version": "0.1.0",
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Restruct",
+			"properties": {
+				"restruct.filesNamingFormat": {
+					"type": "string",
+					"default": "Pascal",
+					"enum": [
+						"None",
+						"Camel",
+						"Pascal",
+						"Snake",
+						"Dash"
+					],
+					"enumDescriptions": [
+						"No format",
+						"camelCase",
+						"PascalCase",
+						"snake_case",
+						"dash-case"
+					],
+					"description": "The files naming case format"
+				},
+				"restruct.defaultComponentsDirectory": {
+					"type": "string",
+					"default": "src/components",
+					"format": "uri",
+					"markdownDescription": "The default components directory, for example `src/components`. Leave empty for auto detection"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "restruct.createComponent",
+				"title": "New Component"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "restruct.createComponent",
+					"group": "restruct",
+					"when": "explorerResourceIsFolder"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.38.0",
+		"change-case": "^3.1.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.2.0"
+	}
+}
