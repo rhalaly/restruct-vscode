@@ -13,7 +13,7 @@ export interface TemplateVariables {
 export interface TemplateConfig {
     isTypescript: boolean;
     filesFormatter?: CaseFormatter;
-    extras: {
+    extras?: {
         [config: string]: any;
     };
 }

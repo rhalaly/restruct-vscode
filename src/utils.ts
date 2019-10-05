@@ -40,3 +40,16 @@ export function getCaseFormatter(caseFormat?: string): CaseFormatter {
         default: return (str: string) => str;
     }
 }
+
+export function isTypescriptProject(projPath: string) {
+    if (fs.existsSync(path.join(projPath, 'tsconfig.json'))) {
+        return true;
+    }
+
+    return hasDependency('typescript', projPath);
+}
+
+export function isUsingRedux(projPath: string) {
+    return hasDependency('react-redux', projPath) ||
+        hasDependency('redux', projPath);
+}

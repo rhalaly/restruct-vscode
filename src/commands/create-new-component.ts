@@ -2,21 +2,8 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 import { template } from '../templates';
-import { hasDependency, getCaseFormatter } from '../utils';
+import { getCaseFormatter, isTypescriptProject, isUsingRedux } from '../utils';
 import { EXTRA_USE_REDUX } from '../templates/new-component';
-
-function isTypescriptProject(projPath: string) {
-    if (fs.existsSync(path.join(projPath, 'tsconfig.json'))) {
-        return true;
-    }
-
-    return hasDependency('typescript', projPath);
-}
-
-function isUsingRedux(projPath: string) {
-    return hasDependency('react-redux', projPath) ||
-        hasDependency('redux', projPath);
-}
 
 function componentsDirLocation(rootDir: string, defaultPath: string) {
     if (defaultPath) {

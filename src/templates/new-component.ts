@@ -117,7 +117,7 @@ export default connect(
         [`index.${ext}`]: indexContent(containerFileName),
     };
 
-    if (config && config.extras[EXTRA_USE_REDUX]) {
+    if (config.extras && config.extras[EXTRA_USE_REDUX]) {
         if (config.extras[EXTRA_COMBINE_REDUX]) {
             files[`${containerFileName}.${ext}x`] = containerReduxFileContent;
         } else {

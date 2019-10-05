@@ -61,6 +61,12 @@
 					"format": "uri",
 					"markdownDescription": "The default components directory, for example `src/components`. Leave empty for auto detection"
 				},
+				"restruct.defaultStatesDirectory": {
+					"type": "string",
+					"default": "src/states",
+					"format": "uri",
+					"markdownDescription": "The default state directory, for example `src/states`. Leave empty for auto detection"
+				},
 				"restruct.newComponent.reduxInContainer": {
 					"type": "boolean",
 					"default": false,
@@ -72,12 +78,21 @@
 			{
 				"command": "restruct.createComponent",
 				"title": "New Component"
+			},
+			{
+				"command": "restruct.createState",
+				"title": "New State"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
 					"command": "restruct.createComponent",
+					"group": "restruct",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "restruct.createState",
 					"group": "restruct",
 					"when": "explorerResourceIsFolder"
 				}

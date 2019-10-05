@@ -10,6 +10,7 @@ It supports Javascript, Typescript and Redux and change the template based on yo
 ## Features
 
 * Create a new React component
+* Create a new State (Redux action + reducer)
 
 ## Extension Settings
 
