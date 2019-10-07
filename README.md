@@ -2,6 +2,7 @@
 [![Build Status](https://dev.azure.com/Restruct/restruct-vscode/_apis/build/status/rhalaly.Restruct-vscode?branchName=master)](https://dev.azure.com/Restruct/restruct-vscode/_build/latest?definitionId=1&branchName=master)
 [![VS Code Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/rhalaly.restruct-vscode)](https://marketplace.visualstudio.com/items?itemName=rhalaly.restruct-vscode)
 [![Version](https://img.shields.io/visual-studio-marketplace/v/rhalaly.restruct-vscode)](https://marketplace.visualstudio.com/items?itemName=rhalaly.restruct-vscode)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a36fac4a51c74e598119deaf92a84dd7)](https://www.codacy.com/manual/rhalaly/restruct-vscode?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rhalaly/restruct-vscode&amp;utm_campaign=Badge_Grade)
 
 Restruct contains common templates for React's best practices.  
 It supports Javascript, Typescript and Redux and change the template based on your project.
