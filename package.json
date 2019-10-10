@@ -21,7 +21,7 @@
 		"javascript",
 		"typescript"
 	],
-	"version": "0.3.3",
+	"version": "0.3.4",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.38.0"
