@@ -12,7 +12,7 @@ It supports Javascript, Typescript and Redux and change the template based on yo
 * Create a new React component
 * Create a new State (Redux action + reducer)
 
-Both options can be done by context menu (right click on a folder) or by typing a command (Ctrl+Shift+P or Cmd+Shift+P) with the word "Restruct" 
+Both options can be triggered by context menu (right click on a folder) or by typing a command (Ctrl+Shift+P or Cmd+Shift+P) with the word "Restruct" 
 
 ## Extension Settings
 
