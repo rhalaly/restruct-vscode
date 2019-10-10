@@ -21,7 +21,7 @@
 		"javascript",
 		"typescript"
 	],
-	"version": "0.3.2",
+	"version": "0.3.3",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.38.0"
@@ -30,7 +30,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onCommand:restruct.createComponent",
+		"onCommand:restruct.createState"
 	],
 	"main": "./out/extension.js",
 	"contributes": {

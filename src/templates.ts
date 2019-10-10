@@ -51,7 +51,7 @@ async function copyTemplateDir(
         return undefined; // never
     });
 
-    await Promise.all(promises);
+    await Promise.all(promises.filter(p => p !== undefined));
 }
 
 async function handleFile(
