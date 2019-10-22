@@ -26,7 +26,7 @@ export function ${name}Action(param${config.isTypescript ? ': any' : ''}) {
 }`;
 
     const reducerFileContent =
-        `import * as actions from './actions';
+        `import * as actions from './${formatter('actions')}';
 
 function ${name}Reducer(state, action) {
     switch(action.type) {
@@ -42,7 +42,7 @@ function ${name}Reducer(state, action) {
 
 export default ${name}Reducer;`;
 
-    const indexContent = `import reducers from './reducers';
+    const indexContent = `import reducers from './${formatter('reducers')}';
 import * as actions from './actions';
 
 export {
@@ -54,11 +54,11 @@ export {
 
     return {
         [`${formatter(this.name)}`]: {
-            [`actions.${ext}`]: actionFileContent,
-            [`reducers.${ext}`]: reducerFileContent,
-            [`actions.test.${ext}`]: '',
-            [`reducers.test.${ext}`]: '',
-            [`index.${ext}`]: indexContent,
+            [`${formatter('actions')}.${ext}`]: actionFileContent,
+            [`${formatter('reducers')}.${ext}`]: reducerFileContent,
+            [`${formatter('actions')}.test.${ext}`]: '',
+            [`${formatter('reducers')}.test.${ext}`]: '',
+            [`${formatter('index')}.${ext}`]: indexContent,
         }
     };
 }
