@@ -31,10 +31,10 @@ function ${cmpName}View() {
 export default ${cmpName}View;`;
 
     const containerFileContent =
-        `import React, { Component } from 'react';
+        `import * as React from 'react';
 import ${cmpName}View from './${viewFileName}';
 
-class ${cmpName}Container extends Component {
+class ${cmpName}Container extends React.Component {
     render() {
         return (
             <${cmpName}View />
